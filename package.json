@@ -1,0 +1,15 @@
+{
+  "name": "xianyu-battle-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2D 回合外即时战斗复刻 Demo：组件化实体、帧事件驱动技能、战报录制与回放",
+  "type": "module",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test tests/*.test.mjs",
+    "balance": "node tests/balance.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

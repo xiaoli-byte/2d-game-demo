@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0a10">
+<title>仙域争锋 · 战斗 Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="fight-canvas"></canvas>
+
+    <div id="hud" class="hidden">
+      <header class="top">
+        <div class="stage-info">
+          <div class="stage-name">第三章 · 落霞古殿</div>
+          <div class="timer"><span class="timer-icon"></span><span id="timer-text">01:30</span></div>
+        </div>
+        <div class="enemy-total">
+          <div class="enemy-total-label">敌方</div>
+          <div class="enemy-total-bar"><i id="enemy-total-lag"></i><i id="enemy-total-fill"></i></div>
+        </div>
+        <nav class="controls">
+          <button id="btn-speed" class="ctl" title="战斗倍速（FightCamera.setTimeScale）">1x</button>
+          <button id="btn-auto" class="ctl on" title="自动释放大招">自动</button>
+          <button id="btn-debug" class="ctl" title="显示动作帧、帧事件、锚点">调试</button>
+          <button id="btn-log" class="ctl" title="战斗流水日志">日志</button>
+          <button id="btn-sound" class="ctl on" title="音效">音效</button>
+          <button id="btn-pause" class="ctl" title="暂停">暂停</button>
+        </nav>
+      </header>
+      <div id="replay-badge" class="hidden">战报回放中</div>
+      <div id="fight-banner"><span>战斗开始</span></div>
+      <div id="cutin">
+        <div class="cutin-band">
+          <img id="cutin-portrait" alt="">
+          <div class="cutin-text">
+            <div id="cutin-hero" class="cutin-hero"></div>
+            <div id="cutin-skill" class="cutin-skill"></div>
+          </div>
+        </div>
+      </div>
+      <div id="pause-mask" class="hidden"><span>已暂停</span></div>
+      <footer id="hero-cards"></footer>
+    </div>
+
+    <div id="result" class="hidden">
+      <div class="result-panel">
+        <div id="result-title" class="result-title">胜 利</div>
+        <div id="result-sub" class="result-sub"></div>
+        <div id="result-stats" class="result-stats"></div>
+        <details class="result-payload">
+          <summary>结算上报 · 协议 102</summary>
+          <pre id="result-payload"></pre>
+        </details>
+        <div class="result-buttons">
+          <button id="btn-replay" class="btn">回放战报</button>
+          <button id="btn-again" class="btn primary">再战一局</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="start">
+      <div class="start-inner">
+        <div class="start-title">仙域争锋</div>
+        <div class="start-sub">战斗系统复刻 Demo</div>
+        <div id="start-progress" class="start-progress"><i id="start-progress-fill"></i></div>
+        <div id="start-tip" class="start-tip">正在加载资源…</div>
+        <button id="btn-start" class="btn primary hidden">开始战斗</button>
+        <ul class="start-help">
+          <li>自动战斗，满怒气的英雄卡牌会发光，关闭"自动"后点击卡牌手动释放大招</li>
+          <li>"调试"显示每个角色当前动作帧和帧事件位置；"日志"显示完整战斗流水</li>
+          <li>战斗结束后可以"回放战报"：不跑 AI、不算伤害，按录制的战报重现整场战斗</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <aside id="log-panel" class="hidden">
+    <div class="log-head">
+      <strong>战斗流水</strong>
+      <div class="log-filters" id="log-filters"></div>
+      <button id="btn-log-close" class="log-close" title="关闭">×</button>
+    </div>
+    <div id="log-list"></div>
+  </aside>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

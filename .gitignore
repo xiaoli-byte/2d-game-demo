@@ -1,0 +1,8 @@
+# 生成素材的原图（体积大，处理后的素材在 assets/ 下）
+assets/raw/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
