@@ -42,7 +42,8 @@ STYLE = (
     "highly detailed costume with ornate gold filigree and jewelry, dramatic rim lighting, rich saturated colors, "
     "crisp clean edges, no text, no watermark, no border"
 )
-CHAR_BG = "plain flat solid pure magenta background (#FF00FF) filling the whole image, no gradient, no floor, no shadow"
+CHAR_BG = ("IMPORTANT: the background MUST be one flat solid pure magenta color (#FF00FF) filling the entire image edge to edge, "
+          "no dark background, no gradient, no vignette, no glow behind the figure, no floor, no shadow")
 CHAR_FRAME = "single full-body character, side view facing RIGHT, whole body including feet visible, centered, generous empty margin around the figure"
 FX_BG = "pure solid black background (#000000) filling the whole image, the effect itself is bright glowing light"
 

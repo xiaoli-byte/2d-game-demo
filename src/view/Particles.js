@@ -2,6 +2,24 @@
 // 所有粒子都用叠加混合绘制，数量有上限，超出时回收最老的粒子
 const MAX = 900;
 
+// 每种颜色预渲染一张光点贴图，避免每个粒子每帧新建径向渐变
+const glowCache = new Map();
+function glowSprite(color) {
+  let c = glowCache.get(color);
+  if (c) return c;
+  c = document.createElement("canvas");
+  c.width = c.height = 32;
+  const ctx = c.getContext("2d");
+  const g = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+  g.addColorStop(0, "#ffffff");
+  g.addColorStop(0.25, color);
+  g.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 32, 32);
+  glowCache.set(color, c);
+  return c;
+}
+
 export class Particles {
   constructor() {
     this.list = [];
@@ -114,15 +132,8 @@ export class Particles {
         ctx.fill();
       } else {
         ctx.globalAlpha = k;
-        const r = p.size * (0.6 + k * 0.6);
-        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 2.6);
-        g.addColorStop(0, "#ffffff");
-        g.addColorStop(0.25, p.color);
-        g.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, r * 2.6, 0, Math.PI * 2);
-        ctx.fill();
+        const r = p.size * (0.6 + k * 0.6) * 2.6;
+        ctx.drawImage(glowSprite(p.color), p.x - r, p.y - r, r * 2, r * 2);
       }
     }
     ctx.globalAlpha = 1;

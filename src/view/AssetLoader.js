@@ -56,7 +56,7 @@ export class Assets {
   async load(onProgress) {
     const list = [];
     for (const conf of Object.values(HeroData)) {
-      for (const p of POSES) list.push(`${conf.Modle}_${p}`);
+      for (const p of conf.Poses || POSES) list.push(`${conf.Modle}_${p}`);
       list.push(`${conf.Modle}_portrait`);
     }
     list.push(...FX, ...BG);
@@ -70,7 +70,7 @@ export class Assets {
       }),
     );
     for (const conf of Object.values(HeroData)) {
-      for (const p of POSES) {
+      for (const p of conf.Poses || POSES) {
         const img = this.images.get(`${conf.Modle}_${p}`);
         if (img) this.meta.set(img, { footX: computeFootX(img) });
       }

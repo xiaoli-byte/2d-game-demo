@@ -36,9 +36,11 @@ http
         res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" }).end("not found");
         return;
       }
+      const ext = path.extname(file).toLowerCase();
       res.writeHead(200, {
-        "Content-Type": MIME[path.extname(file).toLowerCase()] || "application/octet-stream",
-        "Cache-Control": "no-cache",
+        "Content-Type": MIME[ext] || "application/octet-stream",
+        // 代码每次都重新验证，方便修改后刷新；图片素材缓存一小时
+        "Cache-Control": ext === ".png" || ext === ".jpg" ? "public, max-age=3600" : "no-cache",
       });
       fs.createReadStream(file).pipe(res);
     });

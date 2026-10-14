@@ -82,7 +82,7 @@ class Effect {
         sx = base * (0.55 + 0.6 * Ease.expoOut(Math.min(1, k * 2.2)));
         sy = base * (0.85 + 0.2 * Ease.expoOut(Math.min(1, k * 2.2)));
         rot += -26 + 40 * Ease.expoOut(Math.min(1, k * 1.8));
-        alpha = k < 0.35 ? 1 : 1 - Ease.quadIn((k - 0.35) / 0.65);
+        alpha = 0.85 * (k < 0.35 ? 1 : 1 - Ease.quadIn((k - 0.35) / 0.65));
         break;
       case "flicker":
         alpha = (0.55 + 0.45 * Math.abs(Math.sin(this.t * 0.09 + this.seed * 9))) * (k < 0.6 ? 1 : 1 - (k - 0.6) / 0.4);
@@ -146,7 +146,7 @@ class Effect {
       const pulse = 0.85 + 0.15 * Math.sin(this.t * 0.012);
       const a = this.anchor;
       // 地面光圈
-      ctx.globalAlpha = 0.75 * fade;
+      ctx.globalAlpha = 0.55 * fade;
       const g = ctx.createRadialGradient(p.x, a.y, 0, p.x, a.y, 150 * pulse);
       g.addColorStop(0, j.color);
       g.addColorStop(1, "rgba(0,0,0,0)");
@@ -159,7 +159,7 @@ class Effect {
       const lg = ctx.createLinearGradient(0, a.y, 0, a.y - h);
       lg.addColorStop(0, j.color);
       lg.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.globalAlpha = 0.35 * fade * pulse;
+      ctx.globalAlpha = 0.22 * fade * pulse;
       ctx.fillStyle = lg;
       ctx.beginPath();
       ctx.ellipse(p.x, a.y - h / 2, 70, h / 2, 0, 0, Math.PI * 2);

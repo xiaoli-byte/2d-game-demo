@@ -8,6 +8,10 @@
 - 大招演出
 - 战报录制与回放
 
+| 战斗 | 大招演出 | 调试叠加层 | 结算 |
+|---|---|---|---|
+| ![战斗](docs/screenshots/battle.jpg) | ![大招演出](docs/screenshots/rage.jpg) | ![调试](docs/screenshots/debug.jpg) | ![结算](docs/screenshots/result.jpg) |
+
 ## 运行
 
 需要 Node.js 18 或更高版本，不需要 `npm install`。

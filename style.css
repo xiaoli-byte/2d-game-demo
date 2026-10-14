@@ -64,7 +64,7 @@ button { font-family: inherit; cursor: pointer; }
   left: 0;
   right: 0;
   top: 0;
-  padding: calc(var(--u) * 16) calc(var(--u) * 18) 0;
+  padding: calc(var(--u) * 16 + env(safe-area-inset-top, 0px)) calc(var(--u) * 18) 0;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
@@ -269,7 +269,7 @@ button { font-family: inherit; cursor: pointer; }
   left: 0;
   right: 0;
   bottom: 0;
-  padding: calc(var(--u) * 40) calc(var(--u) * 22) calc(var(--u) * 26);
+  padding: calc(var(--u) * 40) calc(var(--u) * 22) calc(var(--u) * 26 + env(safe-area-inset-bottom, 0px));
   display: flex;
   justify-content: center;
   gap: calc(var(--u) * 18);

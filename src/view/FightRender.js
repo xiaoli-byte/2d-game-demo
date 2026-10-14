@@ -326,20 +326,20 @@ export class FightRender {
     for (const s of vs.trail) {
       if (!s.img) continue;
       const k = 1 - s.t / 170;
-      this.drawSprite(ctx, s.img, s, 0.42 * k * vs.alpha, "lighter", this.assets.silhouette(s.img, color, 0));
+      this.drawSprite(ctx, s.img, s, 0.24 * k * vs.alpha, "lighter", this.assets.silhouette(s.img, color, 0));
     }
     // 蓄力外发光
     if (t.glow > 0.01) {
       const pulse = 0.8 + 0.2 * Math.sin(this.time * 0.02);
-      this.drawSprite(ctx, t.img, t, t.glow * 0.85 * pulse * vs.alpha, "lighter", this.assets.silhouette(t.img, color, 10));
+      this.drawSprite(ctx, t.img, t, t.glow * 0.42 * pulse * vs.alpha, "lighter", this.assets.silhouette(t.img, color, 9));
     }
     // 死亡时变灰
     if (e.hp <= 0) ctx.filter = "grayscale(0.7) brightness(0.8)";
     this.drawSprite(ctx, t.img, t, vs.alpha);
     ctx.filter = "none";
     // 受击闪白
-    if (vs.flash > 0) this.drawSprite(ctx, t.img, t, vs.flash * 0.75 * vs.alpha, "lighter", this.assets.silhouette(t.img, "#ffffff", 0));
-    // 被控：狂怒红光
+    if (vs.flash > 0) this.drawSprite(ctx, t.img, t, vs.flash * 0.55 * vs.alpha, "lighter", this.assets.silhouette(t.img, "#ffffff", 0));
+    // 护盾、被控等 Buff 表现
     if (e.hp > 0) this.drawBuffVisuals(ctx, e, t);
   }
 

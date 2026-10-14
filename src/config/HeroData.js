@@ -3,6 +3,7 @@
 //   Archetype  动作模板（ActionConfig）
 //   Hight      角色显示高度（px），用于头顶血条、over_head 特效定位
 //   Skills     普攻 / 小技能 / 大招 的技能 id
+//   Poses      已有的关键姿势图（缺少的姿势会退回 attack → idle）
 export const HeroData = {
   hero_sword: {
     Name: "凌霄",
@@ -43,6 +44,7 @@ export const HeroData = {
     Color: "#ff5a3a",
     Attr: { maxHp: 23500, atk: 385, def: 280, crit: 0.12, critDmg: 1.6, dodge: 0.03, interval: 1750 },
     Skills: { normal: 4001, skill: 4002, rage: 4003 },
+    Poses: ["idle", "attack", "hit"],
   },
   enemy_fox: {
     Name: "九尾妖狐",
@@ -53,6 +55,7 @@ export const HeroData = {
     Color: "#6fd6ff",
     Attr: { maxHp: 14000, atk: 374, def: 170, crit: 0.18, critDmg: 1.6, dodge: 0.1, interval: 1650 },
     Skills: { normal: 5001, skill: 5002, rage: 5003 },
+    Poses: ["idle", "attack", "hit"],
   },
   enemy_skeleton: {
     Name: "幽冥骨卒",
@@ -63,6 +66,7 @@ export const HeroData = {
     Color: "#8cff9a",
     Attr: { maxHp: 15400, atk: 321, def: 260, crit: 0.1, critDmg: 1.5, dodge: 0.05, interval: 1500 },
     Skills: { normal: 6001, skill: 6002, rage: 6003 },
+    Poses: ["idle", "attack", "hit"],
   },
 };
 

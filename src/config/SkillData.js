@@ -222,7 +222,7 @@ export const HeroSkillData = {
     RageBehit: 3,
     HitEff: [[D(1.05), BACK]],
     Show: {
-      hurt: [SLASH({ tint: "#ff3a22", scale: 0.42 }), SPARK({ tint: "#ff8a4a" }), SPARKS("#ff9a7a", 12)],
+      hurt: [SLASH({ tint: "#ff3a22", scale: 0.36 }), SPARK({ tint: "#ff8a4a" }), SPARKS("#ff9a7a", 12)],
       back: { width: 26, time: 170 },
       sfx: { cast: "heavy", hit: "slash" },
     },
@@ -241,7 +241,7 @@ export const HeroSkillData = {
     Buffs: [{ id: "rage", to: "self", chance: 1 }],
     Show: {
       attack: [{ proc: "aura", obj: 0, color: "#ff4a3a", time: 1100, zOrder: 1 }],
-      hurt: [SLASH({ tint: "#ff3a22", scale: 0.46, rot: -28 }), SPARK({ tint: "#ff8a4a" }), SPARKS("#ff9a7a", 14)],
+      hurt: [SLASH({ tint: "#ff3a22", scale: 0.38, rot: -28 }), SPARK({ tint: "#ff8a4a" }), SPARKS("#ff9a7a", 14)],
       back: { width: 40, time: 200 },
       sfx: { cast: "roar", hit: "slash" },
     },
